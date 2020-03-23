@@ -1,4 +1,4 @@
-# multiport-pod - how to expose multiple ports from a single Kubernetes pod
+# multiport-pod - how to expose multiple ports (hhtp/80 & ssh/20) from a single Kubernetes pod
 
 Delete existing deployment
 ```
@@ -24,8 +24,6 @@ RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/run/sshd /var/log/superviso
 
 RUN echo 'root:Password1234' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-# SSH login fix. Otherwise user is kicked off after login
-# RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord"]
