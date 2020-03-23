@@ -26,3 +26,20 @@ deployment.yml:
           protocol: TCP
       ...
 ```
+
+service.yml:
+```
+...
+  ports:
+  - nodePort:
+    name: www 
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  - nodePort:
+    name: sshd 
+    protocol: TCP
+    port: 22
+    targetPort: 22
+...
+```
