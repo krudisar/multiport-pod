@@ -1,4 +1,4 @@
-# multiport-pod - how to expose multiple ports (hhtp/80 & ssh/20) from a single Kubernetes pod
+# multiport-pod - how to expose multiple ports (http/80 & ssh/20) from a single Kubernetes pod
 
 Delete existing deployment
 ```
